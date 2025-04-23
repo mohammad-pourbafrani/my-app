@@ -1,5 +1,6 @@
 import { useAppKit } from "@reown/appkit/react";
 import { Components } from "./call_api_func.js";
+import { StakeButton } from "./stake_button.js";
 
 export function ConnectButton() {
     // 4. Use modal hook
@@ -13,6 +14,8 @@ export function ConnectButton() {
 
 
             <Components />
+
+            <StakeButton/>
 
         </>
     );
