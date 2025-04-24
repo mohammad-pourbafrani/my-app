@@ -8,7 +8,7 @@ export function ConnectButton() {
     return (
         <>
             <button onClick={() => open()}>Open Connect Modal</button>
-            <button onClick={() => open({ arguments: "Networks" })}>
+            <button onClick={() => open({ view: "Networks" })}>
                 Open Network Modal
             </button>
 

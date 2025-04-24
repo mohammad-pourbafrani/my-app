@@ -899,6 +899,17 @@ export function Components() {
         });
 
         console.log("stckeList :", getStackList);
+        getStackList.forEach((stake , index)=>{
+            console.log(`index ${index}`);
+            console.log(`endTime ${Date(parseInt(stake[1])).toLocaleString()}`);
+            console.log(`amount ${parseInt(stake[0], 10) / Math.pow(10, 18)}`);
+            console.log('plan details :');
+            console.log(`  Release Duration: ${parseInt(stake[2][0]) / 3600 / 24}`);
+            console.log(`  Ratio: ${parseInt(stake[2][1]) / 100}`);
+            console.log(`  Min Amount: ${parseInt(stake[2][2], 10) / Math.pow(10, 18)}`);
+            console.log('--------------------');
+            
+        });
 
     }
 
