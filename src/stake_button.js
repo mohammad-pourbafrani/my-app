@@ -1615,8 +1615,56 @@ export function StakeButton() {
         const stakeContract = new ethers.Contract(stakeContractAddress, stakeContractAbi, signer);
         const hpoContract = new ethers.Contract(hpoContractAddress, contractAbi, signer);
 
+        
         const amount = ethers.getBigInt('3000000000000000000000');
         console.log("amount : ", amount);
+
+        //allowance
+        const allowance = await hpoContract.allowance(address,stakeContractAddress);
+        console.log(allowance);
+        const amountAllowance =  ethers.getBigInt(allowance);
+        console.log(amountAllowance);
+        
+        
+        if (amountAllowance < amount) {
+           // // approve
+           // // stake
+            // const approve = await hpoContract.approve(stakeContractAddress, amount);
+            //  if (approve) {
+            //     console.log("approve :", approve);
+
+            //     try {
+            //         //staking in plan 0 30 dat , 6% ratio , minimum amount 3000
+            //         const tx = await stakeContract.stake(amount, 0);
+            //         console.log("Transaction sent:", tx.hash);
+            //         const receipt = await tx.wait();
+            //         console.log("Transaction confirmed:", receipt);
+
+            //     } catch (error) {
+            //         console.error("Staking failed reason:", error.reason);
+            //         console.error("Staking failed revert:", error.revert);
+            //         console.error("Staking failed :", error);
+
+            //     }
+            // } else {
+            //     console.log("approve :", approve);
+            //     }
+            }else{
+            //stake
+              try {
+            //staking in plan 0 30 dat , 6% ratio , minimum amount 3000
+            const tx = await stakeContract.stake(amount, 0);
+            console.log("Transaction sent:", tx.hash);
+            const receipt = await tx.wait();
+            console.log("Transaction confirmed:", receipt);
+
+            } catch (error) {
+            console.error("Staking failed reason:", error.reason);
+            console.error("Staking failed revert:", error.revert);
+            console.error("Staking failed :", error);
+
+            }
+        }
 
 
         // const approve = await hpoContract.approve(stakeContractAddress, amount);
@@ -1640,19 +1688,7 @@ export function StakeButton() {
         //     console.log("approve :", approve);
         // }
 
-        try {
-            //staking in plan 0 30 dat , 6% ratio , minimum amount 3000
-            const tx = await stakeContract.stake(amount, 0);
-            console.log("Transaction sent:", tx.hash);
-            const receipt = await tx.wait();
-            console.log("Transaction confirmed:", receipt);
-
-        } catch (error) {
-            console.error("Staking failed reason:", error.reason);
-            console.error("Staking failed revert:", error.revert);
-            console.error("Staking failed :", error);
-
-        }
+    
 
 
     }
