@@ -15,7 +15,7 @@ export function ConnectButton() {
 
             <Components />
 
-            <StakeButton/>
+            <StakeButton />
             <ChangeNetwork/>
 
         </>

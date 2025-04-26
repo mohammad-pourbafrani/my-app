@@ -27,7 +27,7 @@
 
 import { createAppKit } from '@reown/appkit/react'
 import { EthersAdapter } from '@reown/appkit-adapter-ethers'
-import { bsc, mainnet } from '@reown/appkit/networks'
+import { mainnet, bsc } from '@reown/appkit/networks'
 import { ConnectButton } from './connect_button.js'
 
 
@@ -35,7 +35,7 @@ import { ConnectButton } from './connect_button.js'
 const projectId = '8136f750acdfad3c20903e479bfa004e';
 
 // 2. Set the networks
-const networks = [mainnet, bsc ];
+const networks = [mainnet, bsc];
 
 // 3. Create a metadata object - optional
 const metadata = {
@@ -53,7 +53,7 @@ createAppKit({
   projectId,
   enableWalletConnect: true,
   defaultNetwork: bsc,
-   includeWalletIds: [
+  includeWalletIds: [
     "664b505fea4c2117b8a55c054ef209664e0a68ddaafd7534df739f97a293fa1d",
     "c57ca95b47569778a828d19178114f4db188b89b763c899ba0be274e97267d96",
   ],
@@ -63,7 +63,7 @@ createAppKit({
     connectMethodsOrder: ["wallet"],
     // connectorTypeOrder
   },
-    allWallets: "HIDE",
+  allWallets: "HIDE",
   //   customWallets: [
   //     {
   //       id: "664b505fea4c2117b8a55c054ef209664e0a68ddaafd7534df739f97a293fa1d",
