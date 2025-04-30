@@ -1798,7 +1798,7 @@ export function Components() {
         // const ethersProvider = new BrowserProvider(walletProvider);
         const signer = await ethersProvider.getSigner();
         // // The Contract object
-        const contract = new ethers.Contract(ethContractAddress, ethContractAbi, signer);
+        const contract = new ethers.Contract(bsccontractAddress, bscContractAbi, signer);
         const plans = await contract.getPlans();
         // const getStackList = await contract.getStakeList();
 
